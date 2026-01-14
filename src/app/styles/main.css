@@ -1,1 +1,8 @@
 @import 'tailwindcss';
+@import './fonts.css';
+
+@layer base {
+  :root {
+    --default-font-family: 'IBM Plex Mono', sans-serif, system-ui;
+  }
+}
