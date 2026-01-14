@@ -3,6 +3,29 @@
 
 @layer base {
   :root {
-    --default-font-family: 'IBM Plex Mono', sans-serif, system-ui;
+    --default-font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    --default-font-size: 18px;
+    --default-line-height: 1.5;
+    --color-body: #F9FAFB;
+    --color-text: #111827;
   }
+  :root[data-theme="light"] {
+    --color-body: #111827;
+    --color-text: #FFFFFF;
+  }
+}
+
+@theme {
+  /* Additional variables */
+}
+
+body {
+  font-size: var(--default-font-size);
+  line-height: var(--default-line-height);
+  background-color: var(--color-body);
+  color: var(--color-text);
+}
+
+.container {
+  @apply mx-auto px-4 max-w-360;
 }
