@@ -6,24 +6,28 @@
     --default-font-family: 'IBM Plex Mono', ui-monospace, monospace;
     --default-font-size: 18px;
     --default-line-height: 1.5;
-    --color-body: #F9FAFB;
-    --color-text: #111827;
+    --color-body-bg: #111827;
+    --color-body-text: #FFFFFF;
   }
   :root[data-theme="light"] {
-    --color-body: #111827;
-    --color-text: #FFFFFF;
+    --color-body-bg: #F9FAFB;
+    --color-body-text: #111827;
+    --color-quote-bg: #E5E7EB;
   }
 }
 
 @theme {
-  /* Additional variables */
+  --color-quote-bg: #1F2937;
+  --color-green-400: #34D399;
+  --color-green-600: #16A34A;
+  --color-gray-900: #111827;
 }
 
 body {
   font-size: var(--default-font-size);
   line-height: var(--default-line-height);
-  background-color: var(--color-body);
-  color: var(--color-text);
+  background-color: var(--color-body-bg);
+  color: var(--color-body-text);
 }
 
 .container {
