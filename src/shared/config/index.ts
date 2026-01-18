@@ -1,3 +1,3 @@
-import { quotesConfig } from '@/shared/config/quotesConfig.ts'
+import { quotesConfig } from '@/shared/config/config.ts'
 
 export { quotesConfig }

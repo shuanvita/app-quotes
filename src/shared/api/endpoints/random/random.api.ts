@@ -1,8 +1,8 @@
 import { httpClient } from '@/shared/api/httpClient'
 import { quotesConfig } from '@/shared/config'
-import type { QuotesResponse } from '@/shared/api/endpoints/quotes/quotes.types.ts'
+import type { RandomQuoteResponse } from '@/shared/api/endpoints/random/random.types.ts'
 
-export const getQuotes = (): Promise<QuotesResponse> =>
+export const getRandomQuote = (): Promise<RandomQuoteResponse> =>
   httpClient('quotes/random', {
     baseUrl: quotesConfig.BASE_URL,
   })

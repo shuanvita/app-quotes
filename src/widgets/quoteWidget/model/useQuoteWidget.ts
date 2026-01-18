@@ -1,5 +1,5 @@
 // widgets/QuoteWidget/model/useQuoteWidget.ts
-import { useQuotes } from '@/features/quotes/lib/useQuotes'
+import { useQuotes } from '@/features/quotes/lib/useRandomQuote'
 
 export function useQuoteWidget() {
   const { quotes, loading, error, fetchQuotes } = useQuotes()
