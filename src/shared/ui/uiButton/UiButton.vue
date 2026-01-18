@@ -11,6 +11,7 @@ const props = withDefaults(defineProps<UIButtonProps>(), {
 
 const variants = {
   default: 'bg-green-400 text-gray-900 hover:bg-green-600',
+  primary: 'bg-purple-500 text-white hover:bg-purple-700',
 }
 </script>
 
