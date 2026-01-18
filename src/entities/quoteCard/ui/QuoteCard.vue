@@ -9,8 +9,8 @@ const props = defineProps<QuoteCard>()
     class="bg-quote-bg flex max-w-226.5 flex-col items-center justify-center gap-7.5 rounded-[10px] px-7.5 py-12.5"
   >
     <div class="text-center text-[36px]/[1.3]">
-      When you reach the end of your rope, tie a knot in it and hang on.
+      {{ props.quote }}
     </div>
-    <div class="text-[20px] italic">Franklin D. Roosevelt</div>
+    <div class="text-[20px] italic">{{ props.author }}</div>
   </blockquote>
 </template>
