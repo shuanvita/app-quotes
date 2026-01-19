@@ -1,6 +1,6 @@
 import { httpClient } from '@/shared/api/httpClient'
 import { quotesConfig } from '@/shared/config'
-import type { RandomQuoteResponse } from '@/shared/api/endpoints/random/random.types.ts'
+import type { RandomQuoteResponse } from './random.types.ts'
 
 export const getRandomQuote = async (): Promise<RandomQuoteResponse> => {
   try {
