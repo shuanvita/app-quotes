@@ -1,8 +1,12 @@
 import type { Ref } from 'vue'
-import type { RandomQuoteItem } from '@/shared/api/endpoints/random/random.types.ts'
+import type {
+  RandomQuoteItem,
+  RandomQuoteResponse,
+} from '@/shared/api/endpoints/random/random.types.ts'
 
 export interface UseRandomQuoteReturn {
   quote: Ref<RandomQuoteItem | null>
+  quotes: Ref<RandomQuoteResponse | null>
   loading: Ref<boolean>
   error: Ref<string | null>
   load: () => Promise<void>

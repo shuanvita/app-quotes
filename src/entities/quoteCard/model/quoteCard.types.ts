@@ -1,4 +1,4 @@
 export interface QuoteCard {
-  quote: string | undefined
-  author: string | undefined
+  quote: string
+  author: string
 }

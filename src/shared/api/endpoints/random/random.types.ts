@@ -1,8 +1,8 @@
 export interface RandomQuoteItem {
   content: string
   author: string
-  tags: string[]
   authorSlug: string
+  tags: string[]
   length: number
   dateAdded: string
   dateModified: string

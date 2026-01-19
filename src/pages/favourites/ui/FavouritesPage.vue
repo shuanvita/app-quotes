@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { QuoteWidget } from '@/widgets/quoteWidget'
+import { QuoteRandom } from '@/widgets/quoteWidget'
 </script>
 
 <template>
   <div>
-    <QuoteWidget />
+    <QuoteRandom />
   </div>
 </template>
