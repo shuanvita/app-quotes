@@ -1,9 +1,5 @@
 <script setup lang="ts"></script>
 
-<template>
-  <div>
-    <RouterView />
-  </div>
-</template>
+<template>Favorites Page</template>
 
 <style scoped></style>
