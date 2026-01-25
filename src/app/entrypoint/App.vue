@@ -1,8 +1,17 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { AppHeader } from '@/widgets/AppHeader'
+import { AppFooter } from '@/widgets/AppFooter'
+import { AppSidebar } from '@/widgets/AppSidebar'
+</script>
 
 <template>
-  <div>
-    <RouterView />
+  <div class="container grid h-screen grid-cols-[260px_1fr]">
+    <AppSidebar />
+    <div class="px-10 py-6">
+      <AppHeader />
+      <RouterView />
+      <AppFooter />
+    </div>
   </div>
 </template>
 
