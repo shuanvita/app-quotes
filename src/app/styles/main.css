@@ -13,7 +13,7 @@
     --color-nav-text: #9CA3AF;
     --color-nav-text-hover: #F9FAFB;
     --color-tag-border: #1F2937;
-    --colot-tag-bg: #030712;
+    --color-tag-bg: #030712;
     --color-tag-border-hover: #8B5CF6;
     --colot-tag-bg-hover: #111827;
   }
@@ -23,7 +23,7 @@
     --color-nav-bg: #E6D7A9;
     --color-nav-text: #8B7F5A;
     --color-tag-border: rgba(0, 0, 0, 0.8);
-    --colot-tag-bg: #FBF8F2;
+    --color-tag-bg: #FBF8F2;
     --color-tag-border-hover: #8B5CF6;
   }
 }
@@ -35,7 +35,7 @@
   --color-nav-text: #9CA3AF;
   --color-nav-text-hover: #F9FAFB;
   --color-tag-border: #1F2937;
-  --colot-tag-bg: #030712;
+  --color-tag-bg: #FBF8F2;
   --color-tag-border-hover: #8B5CF6;
   --colot-tag-bg-hover: #111827;
 }
