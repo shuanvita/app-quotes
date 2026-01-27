@@ -7,17 +7,9 @@
     --default-font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
     --default-font-size: 16px;
     --default-line-height: 1.6;
-    --color-body-bg: #020617;
-    --color-body-text: #E5E7EB;
-    --color-nav-bg: #111827;
-    --color-nav-text: #9CA3AF;
-    --color-nav-text-hover: #F9FAFB;
-    --color-tag-border: #1F2937;
-    --color-tag-bg: #030712;
-    --color-tag-border-hover: #8B5CF6;
-    --colot-tag-bg-hover: #111827;
   }
   :root[data-theme="light"] {
+    --color-primary: #CDAA45;
     --color-body-bg: #F7F5EF;
     --color-body-text: #13210B;
     --color-nav-bg: #E6D7A9;
@@ -25,19 +17,22 @@
     --color-tag-border: rgba(0, 0, 0, 0.8);
     --color-tag-bg: #FBF8F2;
     --color-tag-border-hover: #8B5CF6;
+    --color-tag-bg-hover: #E6D7A9;
+    --color-nav-text-hover: #E6D7A9;
   }
 }
 
 @theme {
-  --color-green-400: #34D399;
   --color-primary: #8B5CF6;
+  --color-body-bg: #020617;
+  --color-body-text: #E5E7EB;
   --color-nav-bg: #111827;
   --color-nav-text: #9CA3AF;
   --color-nav-text-hover: #F9FAFB;
   --color-tag-border: #1F2937;
-  --color-tag-bg: #FBF8F2;
+  --color-tag-bg: #030712;
   --color-tag-border-hover: #8B5CF6;
-  --colot-tag-bg-hover: #111827;
+  --color-tag-bg-hover: #111827;
 }
 
 body {
