@@ -43,5 +43,5 @@ body {
 }
 
 .container {
-  @apply mx-auto px-4 max-w-360;
+  @apply mx-auto px-4 xl:px-0 max-w-360;
 }
