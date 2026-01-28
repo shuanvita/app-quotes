@@ -9,7 +9,7 @@ import { sidebarData } from '@/shared/data'
     <BaseLink
       v-for="(item, idx) in sidebarData.tags"
       :key="`tag-item-${idx}`"
-      class="bg-tag-bg border-tag-border max-h-7 hover:bg-nav-bg hover:border-tag-border-hover flex items-center justify-center rounded-2xl border px-3 py-1.5 text-[12px] duration-200"
+      class="bg-tag-bg border-secondary hover:bg-nav-bg hover:border-tag-border-hover flex max-h-7 items-center justify-center rounded-2xl border px-3 py-1.5 text-[12px] duration-200"
       :to="item.to"
     >
       {{ item.label }}
