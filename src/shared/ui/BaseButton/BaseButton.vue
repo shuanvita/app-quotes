@@ -8,6 +8,7 @@ const props = defineProps<BaseButtonProps>()
 const variants = {
   default: 'border border-secondary text-body-text hover:bg-tag-bg hover:text-white',
   primary: 'bg-primary text-white hover:bg-nav-bg',
+  custom: '',
 }
 const variantClass = computed(() => {
   if (props.disabled) return 'cursor-not-allowed bg-slate-700 text-slate-500'
@@ -20,7 +21,7 @@ const variantClass = computed(() => {
   <button
     :class="[
       'flex items-center justify-center gap-2 rounded-md duration-200',
-      props.icon ? 'p-2' : 'px-4 py-3',
+      props.icon ? '' : 'px-4 py-3',
       variantClass,
     ]"
     :disabled="props.disabled"
