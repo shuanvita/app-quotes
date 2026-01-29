@@ -10,7 +10,7 @@ import { AppSidebar } from '@/widgets/AppSidebar'
     <div class="px-10 py-6">
       <AppHeader />
       <RouterView />
-      <AppFooter />
+      <AppFooter class="mt-16" />
     </div>
   </div>
 </template>
