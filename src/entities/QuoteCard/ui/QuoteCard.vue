@@ -7,7 +7,7 @@ const props = defineProps<QuoteCardProps>()
 
 <template>
   <blockquote
-    class="bg-tag-bg border-secondary flex min-h-50 flex-col justify-between rounded-lg border p-6"
+    class="bg-tag-bg border-secondary flex min-h-50 flex-col justify-between rounded-lg border p-6 hover:border-primary duration-200"
   >
     <div class="text-[14px]">{{ props.quote }}</div>
     <div class="border-secondary flex items-center justify-between border-t pt-4">
