@@ -6,6 +6,7 @@ export default defineConfig([
   {
     rules: {
       'fsd/repetitive-naming': 'off',
+      'fsd/insignificant-slice': 'off',
     },
   },
 ])
