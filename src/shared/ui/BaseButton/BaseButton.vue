@@ -6,8 +6,8 @@ import { computed } from 'vue'
 const props = defineProps<BaseButtonProps>()
 
 const variants = {
-  default: 'border border-secondary text-body-text hover:bg-tag-bg hover:text-white',
-  primary: 'bg-primary text-white hover:bg-nav-bg',
+  default: 'border border-secondary-300 text-default hover:bg-secondary',
+  primary: 'bg-primary text-quote-btn hover:bg-secondary-300 hover:text-default',
   custom: '',
 }
 const variantClass = computed(() => {

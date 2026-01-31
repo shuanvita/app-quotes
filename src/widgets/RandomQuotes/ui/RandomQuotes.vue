@@ -9,7 +9,7 @@ import { QuoteCard } from '@/entities/QuoteCard'
     <div class="mb-8 flex items-center justify-between">
       <h2 class="text-[16px] font-semibold">{{ homeData.quotes.title }}</h2>
       <BaseLink
-        class="text-primary hover:text-body-text text-[14px] duration-200"
+        class="text-primary hover:text-white text-[14px]"
         :to="homeData.quotes.link.to"
       >
         {{ homeData.quotes.link.text }}</BaseLink
