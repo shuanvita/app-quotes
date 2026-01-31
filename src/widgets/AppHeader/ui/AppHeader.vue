@@ -1,25 +1,25 @@
 <script setup lang="ts">
 import { BaseButton } from '@/shared/ui/BaseButton'
+import { ThemeSwitcher } from '@/features/ThemeSwitcher'
+import { BaseLink } from '@/shared/ui/BaseLink'
 </script>
 
 <template>
-  <header class="flex items-center justify-end gap-3">
+  <header class="text-secondary-200 flex items-center justify-end gap-3">
     <BaseButton
-      class="border-secondary bg-tag-bg hover:bg-nav-bg hover:border-tag-border-hover max-h-10 border px-4.5 text-[14px] duration-200"
+      class="max-h-10 border px-4.5 text-[14px]"
       preIcon="outline/language"
       iconSize="16"
     >
       English
     </BaseButton>
-    <BaseButton
-      class="border-secondary hover:bg-nav-bg hover:border-tag-border-hover text-nav-text h-10 w-10 border text-[14px] duration-200"
-      icon="outline/sun"
-      iconSize="20"
-    />
-    <BaseButton
-      class="border-secondary hover:bg-nav-bg hover:border-tag-border-hover text-nav-text h-10 w-10 border text-[14px] duration-200"
+    <ThemeSwitcher />
+    <BaseLink
+      class="border-secondary-300 hover:bg-secondary flex h-10 w-10 items-center justify-center rounded-md border text-[14px] duration-200"
+      to="/favorites"
       icon="outline/favorites"
       iconSize="20"
+      activeClass="bg-secondary"
     />
   </header>
 </template>

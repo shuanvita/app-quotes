@@ -10,14 +10,22 @@ const isExternal = computed(() => !!props.href)
 </script>
 
 <template>
-  <a v-if="isExternal" :href="props.href" :target="props.target || '_blank'" v-bind="$attrs">
+  <a
+    class="duration-200"
+    v-if="isExternal"
+    :href="props.href"
+    :target="props.target || '_blank'"
+    v-bind="$attrs"
+  >
+    <BaseSvg v-if="props.icon" :name="props.icon" :size="props.iconSize" />
     <BaseSvg v-if="props.preIcon" :name="props.preIcon" :size="props.iconSize" />
     <span>
       <slot />
     </span>
     <BaseSvg v-if="props.postIcon" :name="props.postIcon" :size="props.iconSize" />
   </a>
-  <RouterLink v-if="!isExternal && props.to" :to="props.to" v-bind="$attrs">
+  <RouterLink class="duration-200" v-if="!isExternal && props.to" :to="props.to" v-bind="$attrs">
+    <BaseSvg v-if="props.icon" :name="props.icon" :size="props.iconSize" />
     <BaseSvg v-if="props.preIcon" :name="props.preIcon" :size="props.iconSize" />
     <span>
       <slot />

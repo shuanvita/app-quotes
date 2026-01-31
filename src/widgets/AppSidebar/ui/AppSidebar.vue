@@ -5,7 +5,7 @@ import PopularTags from '@/widgets/AppSidebar/ui/PopularTags/PopularTags.vue'
 </script>
 
 <template>
-  <aside class="border-secondary space-y-8 border-r p-6">
+  <aside class="border-secondary-300 space-y-8 border-r p-6">
     <AppLogo />
     <NavMenu class="mb-10" />
     <PopularTags />
