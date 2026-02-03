@@ -1,4 +1,5 @@
 export interface RandomQuoteItem {
+  _id: string
   content: string
   author: string
   authorSlug: string

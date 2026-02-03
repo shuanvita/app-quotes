@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useQuotesStore } from '@/entities/QuoteCard/model/QuoteCard.store.ts'
+import { useQuoteFavoritesStore } from '@/entities/QuoteCard/model/QuoteFavorites.store.ts'
 
-const store = useQuotesStore()
+const store = useQuoteFavoritesStore()
 </script>
 
 <template>

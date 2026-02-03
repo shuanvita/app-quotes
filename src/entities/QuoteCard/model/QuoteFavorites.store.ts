@@ -1,10 +1,11 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
+import type { QuoteCardProps} from '@/entities/QuoteCard/model/QuoteCard.types.ts'
 
-export const useQuotesStore = defineStore('quotes', () => {
-  const quotes = ref([])
+export const useQuoteFavoritesStore = defineStore('quoteFavorites', () => {
+  const quotes = ref<QuoteCardProps[]>([])
 
-  const toggleQuote = (quote) => {
+  const toggleFavorite = (quote: QuoteCardProps) => {
     const index = quotes.value.findIndex((q) => q._id === quote._id)
     if (index === -1) {
       quotes.value.push(quote)
@@ -19,7 +20,7 @@ export const useQuotesStore = defineStore('quotes', () => {
 
   return {
     quotes,
-    toggleQuote,
+    toggleFavorite,
     isFavorite,
   }
 })

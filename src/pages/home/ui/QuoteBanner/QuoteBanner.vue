@@ -2,10 +2,10 @@
 import { BaseSvg } from '@/shared/ui/BaseSvg'
 import { BaseButton } from '@/shared/ui/BaseButton'
 import { useGetRandomQuote } from '@/pages/home/model/useGetRandomQuote'
-import { useQuotesStore } from '@/entities/QuoteCard/model/QuoteCard.store.ts'
+import { useQuoteFavoritesStore } from '@/entities/QuoteCard/model/QuoteFavorites.store.ts'
 
-const { quote, load, loading } = useGetRandomQuote()
-const store = useQuotesStore()
+const { quote, load } = useGetRandomQuote()
+const { toggleFavorite, isFavorite } = useQuoteFavoritesStore()
 </script>
 
 <template>
@@ -34,9 +34,9 @@ const store = useQuotesStore()
         class="h-11 min-w-44.5"
         preIcon="outline/favorites"
         iconSize="18"
-        :variant="store.isFavorite(quote?._id) ? 'favorite' : 'default'"
-        @click="store.toggleQuote(quote)"
-        >{{ store.isFavorite(quote?._id) ? 'Remove' : 'Add to Favorites' }}</BaseButton
+        :variant="isFavorite(quote?._id) ? 'favorite' : 'default'"
+        @click="toggleFavorite(quote)"
+        >{{ isFavorite(quote?._id) ? 'Remove' : 'Add to Favorites' }}</BaseButton
       >
     </div>
   </section>
