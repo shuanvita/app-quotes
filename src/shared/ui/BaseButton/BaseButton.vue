@@ -7,7 +7,8 @@ const props = defineProps<BaseButtonProps>()
 
 const variants = {
   default: 'border border-secondary-300 text-default hover:bg-secondary',
-  primary: 'bg-primary text-quote-btn hover:bg-secondary-300 hover:text-default',
+  primary: 'bg-primary hover:bg-secondary-300 hover:text-default',
+  favorite: 'border border-primary text-primary hover:bg-secondary',
   custom: '',
 }
 const variantClass = computed(() => {

@@ -1,22 +1,11 @@
 <script setup lang="ts">
 import { BaseSvg } from '@/shared/ui/BaseSvg'
 import { BaseButton } from '@/shared/ui/BaseButton'
-import { useGetRandomQuote } from '@/pages/home/model/useGetRandomQuote/useGetRandomQuote'
+import { useGetRandomQuote } from '@/pages/home/model/useGetRandomQuote'
 import { useQuotesStore } from '@/entities/QuoteCard/model/QuoteCard.store.ts'
-import { computed } from 'vue'
 
 const { quote, load, loading } = useGetRandomQuote()
 const store = useQuotesStore()
-
-const toggleFavorite = () => {
-  if (quote.value) {
-    store.toggleQuote(quote.value)
-  }
-}
-
-const isFavorite = computed(() => {
-  return quote.value ? store.hasQuote(quote.value.id) : false
-})
 </script>
 
 <template>
@@ -43,11 +32,11 @@ const isFavorite = computed(() => {
       >
       <BaseButton
         class="h-11 min-w-44.5"
-        :class="{ 'text-primary-500': isFavorite }"
         preIcon="outline/favorites"
         iconSize="18"
-        @click="store.toggleQuote"
-        >Add to Favorites</BaseButton
+        :variant="store.isFavorite(quote?._id) ? 'favorite' : 'default'"
+        @click="store.toggleQuote(quote)"
+        >{{ store.isFavorite(quote?._id) ? 'Remove' : 'Add to Favorites' }}</BaseButton
       >
     </div>
   </section>

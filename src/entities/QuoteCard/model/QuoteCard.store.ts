@@ -1,48 +1,25 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
-export const useQuotesStore = defineStore(
-  'quotes',
-  () => {
-    const quotes = ref([])
+export const useQuotesStore = defineStore('quotes', () => {
+  const quotes = ref([])
 
-    // ✅ ДОБАВИТЬ цитату (НЕ удаляет дубликаты)
-    const addQuote = (quote) => {
-      quotes.value.push({ ...quote }) // Всегда добавляем
+  const toggleQuote = (quote) => {
+    const index = quotes.value.findIndex((q) => q._id === quote._id)
+    if (index === -1) {
+      quotes.value.push(quote)
+    } else {
+      quotes.value.splice(index, 1)
     }
+  }
 
-    // ✅ УДАЛИТЬ конкретную цитату
-    const removeQuote = (quoteId: string) => {
-      quotes.value = quotes.value.filter((q) => q.id !== quoteId)
-    }
+  const isFavorite = (quoteId: string) => {
+    return quotes.value.some((item) => item._id === quoteId)
+  }
 
-    // ✅ ПЕРЕКЛЮЧИТЬ (добавляет/удаляет разные цитаты)
-    const toggleQuote = (quote) => {
-      const exists = quotes.value.some((q) => q.id === quote.id)
-
-      if (exists) {
-        // Удаляем ВСЕ экземпляры с таким id
-        quotes.value = quotes.value.filter((q) => q.id !== quote.id)
-      } else {
-        // Добавляем новую цитату
-        quotes.value.push({ ...quote })
-      }
-    }
-
-    // ✅ ПРОВЕРКА наличия цитаты
-    const hasQuote = (quoteId: string) => {
-      return quotes.value.some((q) => q.id === quoteId)
-    }
-
-    return {
-      quotes,
-      addQuote,
-      removeQuote,
-      toggleQuote,
-      hasQuote,
-    }
-  },
-  {
-    persist: true,
-  },
-)
+  return {
+    quotes,
+    toggleQuote,
+    isFavorite,
+  }
+})

@@ -7,7 +7,7 @@ import { AppSidebar } from '@/widgets/AppSidebar'
 <template>
   <div class="container grid h-screen grid-cols-[260px_1fr]">
     <AppSidebar />
-    <div class="px-10 py-6">
+    <div class="px-10 py-6 grid grid-rows-[auto_1fr_auto]">
       <AppHeader />
       <RouterView />
       <AppFooter class="mt-16" />

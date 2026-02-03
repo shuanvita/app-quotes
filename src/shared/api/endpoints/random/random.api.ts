@@ -8,7 +8,7 @@ export const getRandomQuote = async (): Promise<RandomQuoteResponse> => {
       baseUrl: quotesConfig.BASE_URL,
       params: {
         minLength: 120,
-        maxLength: 150,
+        maxLength: 140,
       }
     })
   } catch (error) {
