@@ -1,5 +1,5 @@
 <script setup lang="ts"></script>
 
-<template>Quotes Page</template>
+<template>QuotesTypes Page</template>
 
 <style scoped></style>

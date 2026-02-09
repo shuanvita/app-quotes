@@ -2,6 +2,9 @@
 import { BaseLink } from '@/shared/ui/BaseLink'
 import { homeData } from '@/shared/data'
 import { QuoteCard } from '@/entities/QuoteCard'
+import { useRandomQuotes } from '@/entities/QuoteCard/model/useRandomQuotes.ts'
+
+const { quotes } = useRandomQuotes({limit: 9})
 </script>
 
 <template>
@@ -13,7 +16,7 @@ import { QuoteCard } from '@/entities/QuoteCard'
       >
     </div>
     <div class="grid grid-cols-3 gap-6">
-      <QuoteCard v-for="item in homeData.quotes.list" :key="item._id" v-bind="item" />
+      <QuoteCard v-for="item in quotes" :key="item._id" v-bind="item" :quote="item.content" />
     </div>
   </section>
 </template>

@@ -6,7 +6,7 @@ import { BaseLink } from '@/shared/ui/BaseLink'
   <footer
     class="text-secondary-200 border-secondary-300 flex items-center justify-between border-t pt-4 text-[12px]"
   >
-    <div>© 2026 App Quotes</div>
+    <div>© 2026 App QuotesTypes</div>
     <div class="item-center flex gap-4">
       <BaseLink
         class="hover:text-primary flex items-center gap-2"
