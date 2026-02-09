@@ -1,8 +1,9 @@
-export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE'
+export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH'
+export type QueryParams = Record<string, string | number | boolean>
 
 export interface HttpOptions {
-  method?: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH'
-  params?: Record<string, string | number | boolean>
+  method?: HttpMethod
+  params?: QueryParams
   data?: unknown
   headers?: Record<string, string>
   baseUrl?: string

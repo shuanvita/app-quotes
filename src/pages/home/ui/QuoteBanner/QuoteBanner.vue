@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { BaseSvg } from '@/shared/ui/BaseSvg'
 import { BaseButton } from '@/shared/ui/BaseButton'
-import { useGetRandomQuote } from '@/pages/home/model/useGetRandomQuote'
+import { useRandomQuotes } from '@/entities/QuoteCard/model/useRandomQuotes.ts'
 import { useQuoteFavoritesStore } from '@/entities/QuoteCard/model/QuoteFavorites.store.ts'
 
-const { quote, load } = useGetRandomQuote()
+const { quote, load } = useRandomQuotes({limit:1})
 const { toggleFavorite, isFavorite } = useQuoteFavoritesStore()
 </script>
 

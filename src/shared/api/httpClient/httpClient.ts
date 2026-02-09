@@ -3,8 +3,8 @@ import type { HttpOptions } from './httpClient.types'
 export const httpClient = async <T = unknown>(
   url: string,
   {
-    method = 'GET' as HttpOptions['method'],
-    params = {},
+    method = 'GET',
+    params,
     data,
     headers = {},
     baseUrl = '',
@@ -12,9 +12,10 @@ export const httpClient = async <T = unknown>(
 ): Promise<T> => {
   const urlObj = new URL(url, baseUrl)
 
-  if (method === 'GET') {
-    const searchParams = new URLSearchParams(params as Record<string, string>)
-    urlObj.search = searchParams.toString()
+  if (method === 'GET' && params) {
+    for (const [key, value] of Object.entries(params)) {
+      urlObj.searchParams.append(key, String(value))
+    }
   }
 
   const fetchOptions: RequestInit = {
