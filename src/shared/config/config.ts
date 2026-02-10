@@ -1,3 +1,3 @@
 export const quotesConfig = {
-  BASE_URL: 'https://api.quotable.io',
+  BASE_URL: 'https://quotes-api-7nrc.onrender.com',
 }
