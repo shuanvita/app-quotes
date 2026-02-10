@@ -4,7 +4,7 @@ import { BaseButton } from '@/shared/ui/BaseButton'
 import { useRandomQuotes } from '@/entities/QuoteCard/model/useRandomQuotes.ts'
 import { useQuoteFavoritesStore } from '@/entities/QuoteCard/model/QuoteFavorites.store.ts'
 
-const { quote, load } = useRandomQuotes({limit:1})
+const { quote, load } = useRandomQuotes({limit:2})
 const { toggleFavorite, isFavorite } = useQuoteFavoritesStore()
 </script>
 
