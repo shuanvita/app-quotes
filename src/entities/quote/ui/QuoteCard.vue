@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { QuoteCardProps } from '@/entities/QuoteCard/model/QuoteCard.types.ts'
+import type { QuoteCardProps } from '@/entities/quote/model/QuoteCard.types.ts'
 import { BaseButton } from '@/shared/ui/BaseButton'
 
 const props = defineProps<QuoteCardProps>()

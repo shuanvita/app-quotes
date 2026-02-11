@@ -1,25 +1,26 @@
 <script setup lang="ts">
 import { BaseSvg } from '@/shared/ui/BaseSvg'
 import { BaseButton } from '@/shared/ui/BaseButton'
-import { useRandomQuotes } from '@/entities/QuoteCard/model/useRandomQuotes.ts'
-import { useQuoteFavoritesStore } from '@/entities/QuoteCard/model/QuoteFavorites.store.ts'
+import { useQuoteStore } from '@/entities/quote/model/quote.store.ts'
+import { onMounted } from 'vue'
 
-const { quote, load } = useRandomQuotes({limit:2})
-const { toggleFavorite, isFavorite } = useQuoteFavoritesStore()
+const store = useQuoteStore()
+
+onMounted(() => store.loadRandomQuotes())
 </script>
 
 <template>
   <section
-    v-if="quote"
+    v-if="store.randomQuote"
     class="border-secondary-300 gradient flex h-129.5 flex-col items-center justify-center gap-12 rounded-xl border p-16"
     role="banner"
   >
     <BaseSvg class="text-primary" name="outline/quote" size="64" />
     <div class="flex flex-col items-center gap-6 text-center">
       <blockquote class="max-w-200 text-[32px]/[1.4] font-bold">
-        {{ quote.content }}
+        {{ store.randomQuote.content }}
       </blockquote>
-      <div class="text-secondary-200 text-[16px]">— {{ quote.author }}</div>
+      <div class="text-secondary-200 text-[16px]">— {{ store.randomQuote.author }}</div>
     </div>
     <div class="flex justify-center gap-4">
       <BaseButton
@@ -27,16 +28,16 @@ const { toggleFavorite, isFavorite } = useQuoteFavoritesStore()
         class="h-11 min-w-36"
         preIcon="outline/random"
         iconSize="18"
-        @click="load"
+        @click="store.loadRandomQuotes"
         >New Quote</BaseButton
       >
       <BaseButton
         class="h-11 min-w-44.5"
         preIcon="outline/favorites"
         iconSize="18"
-        :variant="isFavorite(quote?._id) ? 'favorite' : 'default'"
-        @click="toggleFavorite(quote)"
-        >{{ isFavorite(quote?._id) ? 'Remove' : 'Add to Favorites' }}</BaseButton
+        :variant="store.isFavorite(store.randomQuote?._id) ? 'favorite' : 'default'"
+        @click="store.toggleFavorite(store.randomQuote)"
+        >{{ store.isFavorite(store.randomQuote?._id) ? 'Remove' : 'Add to Favorites' }}</BaseButton
       >
     </div>
   </section>
