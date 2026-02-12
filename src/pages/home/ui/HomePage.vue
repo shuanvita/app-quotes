@@ -5,7 +5,7 @@ import { RandomQuotes } from '@/widgets/RandomQuotes'
 </script>
 
 <template>
-  <div class="space-y-12 mt-8">
+  <div class="space-y-12">
     <QuoteBanner />
     <RandomQuotes />
   </div>
