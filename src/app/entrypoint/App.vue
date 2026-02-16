@@ -8,7 +8,7 @@ import { AppSidebar } from '@/widgets/AppSidebar'
   <div class="container grid h-screen grid-cols-[260px_1fr]">
     <AppSidebar />
     <div class="px-10 py-6 grid grid-rows-[auto_1fr_auto]">
-      <AppHeader />
+      <AppHeader class="mb-8" />
       <RouterView />
       <AppFooter class="mt-16" />
     </div>

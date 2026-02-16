@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { QuoteCardProps } from '@/entities/quote/model/QuoteCard.types.ts'
 import { BaseButton } from '@/shared/ui/BaseButton'
+import CopyButton from '@/shared/ui/CopyButton/CopyButton.vue'
 
 const props = defineProps<QuoteCardProps>()
 </script>
@@ -13,6 +14,7 @@ const props = defineProps<QuoteCardProps>()
     <div class="border-secondary-300 flex items-center justify-between border-t pt-4">
       <div class="text-secondary-200 text-[12px]">{{ props.author }}</div>
       <div class="flex items-center gap-3">
+        <CopyButton />
         <BaseButton
           variant="custom"
           class="text-secondary-200 hover:text-primary border-none"
