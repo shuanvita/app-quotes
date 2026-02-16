@@ -14,12 +14,9 @@ const props = defineProps<QuoteCardProps>()
     <div class="border-secondary-300 flex items-center justify-between border-t pt-4">
       <div class="text-secondary-200 text-[12px]">{{ props.author }}</div>
       <div class="flex items-center gap-3">
-        <CopyButton />
-        <BaseButton
-          variant="custom"
+        <CopyButton
           class="text-secondary-200 hover:text-primary border-none"
-          icon="outline/copy"
-          iconSize="18"
+          :source="props.quote"
         />
         <BaseButton
           variant="custom"
