@@ -2,8 +2,14 @@
 import type { QuoteCardProps } from '@/entities/quote/model/QuoteCard.types.ts'
 import { BaseButton } from '@/shared/ui/BaseButton'
 import CopyButton from '@/shared/ui/CopyButton/CopyButton.vue'
+import { useQuoteStore } from '@/entities/quote/model/quote.store.ts'
+import { computed } from 'vue'
 
 const props = defineProps<QuoteCardProps>()
+
+const store = useQuoteStore()
+
+const isFavorite = computed(() => store.isFavorite(props._id))
 </script>
 
 <template>
@@ -20,9 +26,13 @@ const props = defineProps<QuoteCardProps>()
         />
         <BaseButton
           variant="custom"
-          class="text-secondary-200 hover:text-primary border-none"
+          :class="[
+            'hover:text-primary border-none',
+            isFavorite ? 'text-primary' : 'text-secondary-200',
+          ]"
           icon="outline/favorites"
           iconSize="18"
+          @click="store.toggleFavorite(props)"
         />
       </div>
     </div>
