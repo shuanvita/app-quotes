@@ -21,39 +21,4 @@ export const sidebarData = {
       preIcon: 'outline/favorites',
     },
   ],
-  // TODO убрать после получения реальных тегов по API
-  tags: [
-    {
-      to: '/',
-      label: 'Wisdom',
-    },
-    {
-      to: '/',
-      label: 'Technology',
-    },
-    {
-      to: '/',
-      label: 'Life',
-    },
-    {
-      to: '/',
-      label: 'Philosophy',
-    },
-    {
-      to: '/',
-      label: 'Science',
-    },
-    {
-      to: '/',
-      label: 'Motivation',
-    },
-    {
-      to: '/',
-      label: 'Love',
-    },
-    {
-      to: '/',
-      label: 'Success',
-    },
-  ],
 }

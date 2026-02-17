@@ -1,0 +1,12 @@
+{
+  "languages": {
+    "english": "English",
+    "russian": "Russian"
+  },
+  "sidebar": {
+    "home": "Home",
+    "authors": "Authors",
+    "quotes": "All Quotes",
+    "favorites": "Favorites"
+  }
+}
