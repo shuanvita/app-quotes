@@ -9,10 +9,15 @@ const { quotes } = useQuotes()
   <div class="space-y-8">
     <div>
       <h1 class="text-[24px] font-bold">All Quotes</h1>
-      <p>Explore our complete collection of 1,248 quotes.</p>
+      <p>Explore our complete collection of {{ quotes.totalCount }} quotes.</p>
     </div>
     <div class="grid grid-cols-3 gap-6">
-      <QuoteCard v-for="item in quotes.results" :key="item._id" v-bind="item" :quote="item.content" />
+      <QuoteCard
+        v-for="item in quotes.results"
+        :key="item._id"
+        v-bind="item"
+        :quote="item.content"
+      />
     </div>
     <div>Pagination</div>
   </div>
