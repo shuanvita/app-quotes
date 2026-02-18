@@ -14,5 +14,3 @@ import { AppSidebar } from '@/widgets/AppSidebar'
     </div>
   </div>
 </template>
-
-<style scoped></style>

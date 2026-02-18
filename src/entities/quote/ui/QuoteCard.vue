@@ -14,7 +14,7 @@ const isFavorite = computed(() => store.isFavorite(props._id))
 
 <template>
   <blockquote
-    class="bg-accent border-secondary-300 hover:border-primary flex min-h-50 flex-col justify-between rounded-lg border p-6 duration-200"
+    class="bg-accent border-secondary-300 hover:border-primary flex min-h-50 flex-col justify-between rounded-lg border p-6 hover:shadow-[0_8px_24px_0_rgba(15,23,42,0.35)] duration-200"
   >
     <div class="text-[14px]">{{ props.quote }}</div>
     <div class="border-secondary-300 flex items-center justify-between border-t pt-4">
