@@ -1,8 +1,16 @@
 <script setup lang="ts">
 import { useQuotes } from '@/entities/quote/model/useQuotes.ts'
 import { QuoteCard } from '@/entities/quote'
+import { BasePagination } from '@/shared/ui/BasePagination'
+import { ref } from 'vue'
 
-const { quotes } = useQuotes()
+const { quotes, load } = useQuotes()
+const currentPage = ref(0)
+
+const handlePageChange = (page: number) => {
+  currentPage.value = page
+  load(page) // ✅ Передаем page в load
+}
 </script>
 
 <template>
@@ -19,7 +27,12 @@ const { quotes } = useQuotes()
         :quote="item.content"
       />
     </div>
-    <div>Pagination</div>
+    <BasePagination
+      :total="quotes.totalCount"
+      :limit="quotes.limit || 12"
+      :current-page="currentPage"
+      @page-change="handlePageChange"
+    />
   </div>
 </template>
 
