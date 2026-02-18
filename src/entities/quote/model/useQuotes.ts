@@ -7,14 +7,14 @@ export const useQuotes = () => {
   const loading = ref(false)
   const error = ref<string | null>(null)
 
-  const load = async () => {
+  const load = async (page: number = 0) => {
     loading.value = true
     error.value = null
 
     try {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-expect-error
-      quotes.value = await getQuotes()
+      quotes.value = await getQuotes({ page })
     } catch (err) {
       error.value = 'Ошибка получения списка тегов'
       console.error(err)
