@@ -1,8 +1,8 @@
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
 import type { QuoteCardProps} from '@/entities/quote/model/QuoteCard.types.ts'
-import type { Quote } from '@/shared/api/quotes.types.ts'
-import { getRandomQuotes } from '@/shared/api/endpoints/random.api.ts'
+import type { Quote } from '@/shared/api'
+import { getRandomQuotes } from '@/shared/api'
 
 interface QuoteOptions {
   limit?: number

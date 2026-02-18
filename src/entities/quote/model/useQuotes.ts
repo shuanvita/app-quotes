@@ -1,6 +1,6 @@
 import { onMounted, ref } from 'vue'
-import { getQuotes } from '@/shared/api/endpoints/quotes.api.ts'
-import type { QuoteCardProps } from '@/entities/quote/model/QuoteCard.types.ts'
+import { getQuotes } from '@/shared/api'
+import type { QuoteCardProps } from '@/entities/quote'
 
 export const useQuotes = () => {
   const quotes = ref<QuoteCardProps[]>([])
@@ -12,8 +12,6 @@ export const useQuotes = () => {
     error.value = null
 
     try {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-expect-error
       quotes.value = await getQuotes({ page })
     } catch (err) {
       error.value = 'Ошибка получения списка тегов'

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { BaseSvg } from '@/shared/ui/BaseSvg'
 import { BaseButton } from '@/shared/ui/BaseButton'
-import { useQuoteStore } from '@/entities/quote/model/quote.store.ts'
+import { useQuoteStore } from '@/entities/quote'
 import { onMounted } from 'vue'
 
 const store = useQuoteStore()
