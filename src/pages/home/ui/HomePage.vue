@@ -1,6 +1,5 @@
 <script setup lang="ts">
-
-import QuoteBanner from '@/pages/home/ui/QuoteBanner/QuoteBanner.vue'
+import { QuoteBanner } from '@/pages/home/ui/QuoteBanner'
 import { RandomQuotes } from '@/widgets/RandomQuotes'
 </script>
 

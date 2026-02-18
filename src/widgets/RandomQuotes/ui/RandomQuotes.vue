@@ -2,7 +2,7 @@
 import { BaseLink } from '@/shared/ui/BaseLink'
 import { homeData } from '@/shared/data'
 import { QuoteCard } from '@/entities/quote'
-import { useQuoteStore } from '@/entities/quote/model/quote.store.ts'
+import { useQuoteStore } from '@/entities/quote'
 
 const store = useQuoteStore()
 </script>

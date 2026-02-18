@@ -26,7 +26,7 @@ import { BaseLink } from '@/shared/ui/BaseLink'
         class="hover:text-primary flex items-center gap-2"
         preIcon="outline/linkedin"
         iconSize="16"
-        href="#"
+        href="https://www.linkedin.com/in/andrey-shurygin-a66609389/"
         >Linkedin</BaseLink
       >
     </div>

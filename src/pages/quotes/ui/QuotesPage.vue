@@ -1,15 +1,14 @@
 <script setup lang="ts">
-import { useQuotes } from '@/entities/quote/model/useQuotes.ts'
-import { QuoteCard } from '@/entities/quote'
-import { BasePagination } from '@/shared/ui/BasePagination'
 import { ref } from 'vue'
+import { useQuotes, QuoteCard } from '@/entities/quote'
+import { BasePagination } from '@/shared/ui/BasePagination'
 
 const { quotes, load } = useQuotes()
 const currentPage = ref(0)
 
 const handlePageChange = (page: number) => {
   currentPage.value = page
-  load(page) // ✅ Передаем page в load
+  load(page)
 }
 </script>
 

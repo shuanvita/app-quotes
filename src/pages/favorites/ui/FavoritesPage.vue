@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { useQuoteStore } from '@/entities/quote/model/quote.store.ts'
-import { QuoteCard } from '@/entities/quote'
+import { useQuoteStore, QuoteCard } from '@/entities/quote'
 
 const store = useQuoteStore()
 </script>
