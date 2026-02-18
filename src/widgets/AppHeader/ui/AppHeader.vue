@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { BaseButton } from '@/shared/ui/BaseButton'
 import { ThemeSwitcher } from '@/features/ThemeSwitcher'
 import { BaseLink } from '@/shared/ui/BaseLink'
 </script>
