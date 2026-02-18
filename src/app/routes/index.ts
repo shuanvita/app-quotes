@@ -12,14 +12,14 @@ const routes = [
     component: () => import('@/pages/favorites'),
   },
   {
-    name: 'authors',
-    path: '/authors',
-    component: () => import('@/pages/authors'),
-  },
-  {
     name: 'quotes',
     path: '/quotes',
     component: () => import('@/pages/quotes'),
+  },
+  {
+    name: 'not-found',
+    path: '/:pathMatch(.*)*',
+    component: () => import('@/pages/notFound/ui/NotFoundPage.vue'),
   },
 ]
 
