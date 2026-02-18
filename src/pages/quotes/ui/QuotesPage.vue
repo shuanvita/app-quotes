@@ -28,8 +28,10 @@ const handlePageChange = (page: number) => {
       />
     </div>
     <BasePagination
+      class="mt-12"
+      v-if="quotes.totalCount"
       :total="quotes.totalCount"
-      :limit="quotes.limit || 12"
+      :limit="quotes.limit"
       :current-page="currentPage"
       @page-change="handlePageChange"
     />

@@ -1,80 +1,58 @@
 <script setup lang="ts">
-import { BaseButton } from '@/shared/ui/BaseButton'
 import { computed } from 'vue'
+import { BaseButton } from '@/shared/ui/BaseButton'
+import type { PaginationProps } from '@/shared/ui/BasePagination/BasePagination.types.ts'
 
-const props = defineProps({
-  total: {
-    type: Number,
-    required: true,
-  },
-  limit: {
-    type: Number,
-    required: true,
-  },
-  currentPage: {
-    type: Number,
-    required: true,
-  },
-})
+const { total, limit, currentPage } = defineProps<PaginationProps>()
+const emit = defineEmits<{ 'page-change': [page: number] }>()
 
-const emit = defineEmits(['page-change'])
-
-const totalPages = computed(() => Math.ceil(props.total / props.limit))
-const halfVisible = 2
+const totalPages = computed(() => Math.ceil(total / limit))
 
 const visiblePages = computed(() => {
-  const pages: number[] = []
-  let start = Math.max(0, props.currentPage - halfVisible)
-  let end = Math.min(totalPages.value - 1, props.currentPage + halfVisible)
-
-  // Если start пропускает первую страницу
-  if (start > 0) {
-    pages.push(0)
-    if (start > 1) pages.push(-1) // "..."
-  }
-
-  // Диапазон страниц
-  for (let i = start; i <= end; i++) {
-    pages.push(i)
-  }
-
-  // Если end не доходит до последней
-  if (end < totalPages.value - 1) {
-    if (end < totalPages.value - 2) pages.push(-1) // "..."
-    pages.push(totalPages.value - 1)
-  }
-
-  return pages.filter((p) => p >= 0)
+  const start = Math.max(0, Math.min(currentPage - 1, totalPages.value - 3))
+  const count = Math.min(3, totalPages.value)
+  return Array.from({ length: count }, (_, i) => start + i)
 })
+
+const isFirst = computed(() => currentPage === 0)
+const isLast = computed(() => currentPage >= totalPages.value - 1)
+
+const changePage = (page: number) => {
+  emit('page-change', page)
+}
 </script>
 
 <template>
-  <ul class="flex" v-if="totalPages > 1">
-    <!-- Предыдущая -->
-    <li class="pagination-item">
-      <BaseButton @click="$emit('page-change', currentPage - 1)" :disabled="currentPage === 0"
-        >←</BaseButton
-      >
+  <ul class="flex items-center justify-center gap-1 text-[14px]/1" v-if="totalPages > 1">
+    <li>
+      <BaseButton
+        class="h-8 w-8"
+        icon="outline/arrow-left"
+        iconSize="16"
+        :disabled="isFirst"
+        @click="changePage(currentPage - 1)"
+      />
     </li>
 
-    <!-- Номера страниц (диапазон 5 кнопок) -->
-    <li v-for="page in visiblePages" :key="page" class="pagination-item">
-      <button
-        @click="$emit('page-change', page)"
+    <li v-for="(page, index) in visiblePages" :key="index">
+      <BaseButton
+        class="h-8 w-8"
         :class="{ active: page === currentPage }"
         :disabled="page === currentPage"
+        @click="changePage(page)"
       >
         {{ page + 1 }}
-      </button>
+      </BaseButton>
     </li>
 
-    <!-- Следующая -->
-    <li class="pagination-item">
+    <li>
       <BaseButton
-        @click="$emit('page-change', currentPage + 1)"
-        :disabled="currentPage >= totalPages - 1"
-        >→</BaseButton
-      >
+        class="h-8 w-8"
+        icon="outline/arrow-right"
+        iconSize="16"
+        :disabled="isLast"
+        @click="changePage(currentPage + 1)"
+      />
     </li>
   </ul>
 </template>

@@ -11,7 +11,7 @@ const store = useQuoteStore()
       <h1 class="text-[24px] font-bold">Favorite Quotes</h1>
     </div>
     <div v-if="store.quotes.length" class="grid grid-cols-3 gap-6">
-      <QuoteCard v-for="item in store.quotes" :key="item._id" v-bind="item" :quote="item.content" />
+      <QuoteCard v-for="item in store.quotes" :key="item._id" v-bind="item" :quote="item.quote" />
     </div>
     <div v-else>
       This is where your favorite quotes will live — the ones that inspire, motivate, or just hit
