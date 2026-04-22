@@ -4,10 +4,10 @@ import { BaseLink } from '@/shared/ui/BaseLink'
 
 <template>
   <footer
-    class="text-secondary-200 border-secondary-300 flex items-center justify-between border-t pt-4 text-[12px]"
+    class="text-secondary-200 border-secondary-300 flex flex-col items-start justify-between gap-3 border-t pt-4 text-[12px] sm:flex-row sm:items-center sm:gap-4"
   >
     <div>© 2026 App QuotesTypes</div>
-    <div class="item-center flex gap-4">
+    <div class="item-center flex flex-wrap gap-x-4 gap-y-2">
       <BaseLink
         class="hover:text-primary flex items-center gap-2"
         preIcon="outline/github"
