@@ -1,11 +1,11 @@
 import { httpClient } from '@/shared/api/httpClient'
 import { quotesConfig } from '@/shared/config'
 import type { QueryParams } from '@/shared/api/httpClient/httpClient.types.ts'
-import type { Quote } from '@/shared/api/quotes.types.ts'
+import type { Quotes } from '@/shared/api/quotes.types.ts'
 
-export const getQuotes = async (params: QueryParams): Promise<Quote[]> => {
+export const getQuotes = async (params: QueryParams): Promise<Quotes> => {
   try {
-    return await httpClient('quotes', {
+    return await httpClient<Quotes>('quotes', {
       baseUrl: quotesConfig.BASE_URL,
       params,
     })

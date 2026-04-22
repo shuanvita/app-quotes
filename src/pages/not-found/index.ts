@@ -1,3 +1,3 @@
-import NotFoundPage from '@/pages/notFound/ui/NotFoundPage.vue'
+import NotFoundPage from '@/pages/not-found/ui/NotFoundPage.vue'
 
 export { NotFoundPage }

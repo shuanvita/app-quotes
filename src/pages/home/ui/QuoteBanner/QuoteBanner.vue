@@ -35,9 +35,13 @@ onMounted(() => store.loadRandomQuotes())
         class="h-11 min-w-44.5"
         preIcon="outline/favorites"
         iconSize="18"
-        :variant="store.isFavorite(store.randomQuote?._id) ? 'favorite' : 'default'"
-        @click="store.toggleFavorite(store.randomQuote)"
-        >{{ store.isFavorite(store.randomQuote?._id) ? 'Remove' : 'Add to Favorites' }}</BaseButton
+        :variant="store.isFavorite(store.randomQuote._id) ? 'favorite' : 'default'"
+        @click="store.toggleFavorite({
+          _id: store.randomQuote._id,
+          quote: store.randomQuote.content,
+          author: store.randomQuote.author,
+        })"
+        >{{ store.isFavorite(store.randomQuote._id) ? 'Remove' : 'Add to Favorites' }}</BaseButton
       >
     </div>
   </section>

@@ -1,9 +1,16 @@
 import { onMounted, ref } from 'vue'
 import { getQuotes } from '@/shared/api'
-import type { QuoteCardProps } from '@/entities/quote'
+import type { Quotes } from '@/shared/api'
 
 export const useQuotes = () => {
-  const quotes = ref<QuoteCardProps[]>([])
+  const quotes = ref<Quotes>({
+    count: 0,
+    totalCount: 0,
+    page: 0,
+    totalPages: 0,
+    lastItemIndex: 0,
+    results: [],
+  })
   const loading = ref(false)
   const error = ref<string | null>(null)
 

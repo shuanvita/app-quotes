@@ -30,7 +30,7 @@ const handlePageChange = (page: number) => {
       class="mt-12"
       v-if="quotes.totalCount"
       :total="quotes.totalCount"
-      :limit="quotes.limit"
+      :limit="quotes.count"
       :current-page="currentPage"
       @page-change="handlePageChange"
     />
