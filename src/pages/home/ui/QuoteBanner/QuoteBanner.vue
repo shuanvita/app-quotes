@@ -6,21 +6,21 @@ import { onMounted } from 'vue'
 
 const store = useQuoteStore()
 
-onMounted(() => store.loadRandomQuotes())
+onMounted(() => store.loadBannerQuote())
 </script>
 
 <template>
   <section
-    v-if="store.randomQuote"
+    v-if="store.bannerQuote"
     class="border-secondary-300 gradient flex min-h-110 flex-col items-center justify-center gap-8 rounded-xl border p-6 sm:min-h-120 sm:gap-10 sm:p-10 lg:h-129.5 lg:gap-12 lg:p-16"
     role="banner"
   >
     <BaseSvg class="text-primary" name="outline/quote" size="52" />
     <div class="flex flex-col items-center gap-4 text-center sm:gap-6">
       <blockquote class="max-w-200 text-[24px]/[1.35] font-bold sm:text-[28px]/[1.4] lg:text-[32px]/[1.4]">
-        {{ store.randomQuote.content }}
+        {{ store.bannerQuote.content }}
       </blockquote>
-      <div class="text-secondary-200 text-[14px] sm:text-[16px]">— {{ store.randomQuote.author }}</div>
+      <div class="text-secondary-200 text-[14px] sm:text-[16px]">— {{ store.bannerQuote.author }}</div>
     </div>
     <div class="flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row sm:gap-4">
       <BaseButton
@@ -28,20 +28,20 @@ onMounted(() => store.loadRandomQuotes())
         class="h-11 w-full sm:min-w-36"
         preIcon="outline/random"
         iconSize="18"
-        @click="store.loadRandomQuotes"
+        @click="() => store.loadBannerQuote()"
         >New Quote</BaseButton
       >
       <BaseButton
         class="h-11 w-full sm:min-w-44.5"
         preIcon="outline/favorites"
         iconSize="18"
-        :variant="store.isFavorite(store.randomQuote._id) ? 'favorite' : 'default'"
+        :variant="store.isFavorite(store.bannerQuote._id) ? 'favorite' : 'default'"
         @click="store.toggleFavorite({
-          _id: store.randomQuote._id,
-          quote: store.randomQuote.content,
-          author: store.randomQuote.author,
+          _id: store.bannerQuote._id,
+          quote: store.bannerQuote.content,
+          author: store.bannerQuote.author,
         })"
-        >{{ store.isFavorite(store.randomQuote._id) ? 'Remove' : 'Add to Favorites' }}</BaseButton
+        >{{ store.isFavorite(store.bannerQuote._id) ? 'Remove' : 'Add to Favorites' }}</BaseButton
       >
     </div>
   </section>

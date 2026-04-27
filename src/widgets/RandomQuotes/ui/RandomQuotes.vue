@@ -1,10 +1,15 @@
 <script setup lang="ts">
+import { onMounted } from 'vue'
 import { BaseLink } from '@/shared/ui/BaseLink'
 import { homeData } from '@/shared/data'
 import { QuoteCard } from '@/entities/quote'
 import { useQuoteStore } from '@/entities/quote'
 
 const store = useQuoteStore()
+
+onMounted(() => {
+  if (!store.randomQuotes?.length) store.loadRandomQuotes()
+})
 </script>
 
 <template>

@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 import type { QuoteCardProps} from '@/entities/quote/model/QuoteCard.types.ts'
 import type { Quote } from '@/shared/api'
 import { getRandomQuotes } from '@/shared/api'
@@ -16,7 +16,9 @@ export const useQuoteStore = defineStore('quotes', () => {
   const randomQuotes = ref<Quote[] | null>(null)
   const randomLoading = ref(false)
   const randomError = ref<string | null>(null)
-  const randomQuote = computed(() => randomQuotes.value?.[0])
+  const bannerQuote = ref<Quote | null>(null)
+  const bannerLoading = ref(false)
+  const bannerError = ref<string | null>(null)
 
   const loadRandomQuotes = async (params: QuoteOptions = {}) => {
     randomLoading.value = true
@@ -33,6 +35,24 @@ export const useQuoteStore = defineStore('quotes', () => {
       console.error(err)
     } finally {
       randomLoading.value = false
+    }
+  }
+
+  const loadBannerQuote = async (params: Omit<QuoteOptions, 'limit'> = {}) => {
+    bannerLoading.value = true
+    bannerError.value = null
+    try {
+      const [quote] = await getRandomQuotes({
+        limit: 1,
+        minLength: params.minLength || 0,
+        maxLength: params.maxLength || 140,
+      })
+      bannerQuote.value = quote ?? null
+    } catch (err) {
+      bannerError.value = 'Ошибка получения случайной цитаты'
+      console.error(err)
+    } finally {
+      bannerLoading.value = false
     }
   }
 
@@ -55,9 +75,12 @@ export const useQuoteStore = defineStore('quotes', () => {
     toggleFavorite,
     isFavorite,
     randomQuotes,
-    randomQuote,
     randomLoading,
     randomError,
     loadRandomQuotes,
+    bannerQuote,
+    bannerLoading,
+    bannerError,
+    loadBannerQuote,
   }
 })
